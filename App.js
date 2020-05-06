@@ -28,9 +28,9 @@ export default function App() {
           backBehaviour="order"
           tabBarOptions={{
             activeTintColor: "red",
-            inactiveTintColor: "grey",
-            style: { backgroundColor: "black" },
-            indicatorStyle: { backgroundColor: "black" },
+            inactiveTintColor: "red",
+            style: { backgroundColor: "hsl(0, 0%, 15%)" },
+            indicatorStyle: { backgroundColor: "black", height: null, top: 0 },
           }}
         >
           <Tab.Screen
@@ -41,7 +41,7 @@ export default function App() {
           <Tab.Screen
             name="Settings"
             component={SettingsScreen}
-            options={{ tabBarAccessibilityLabel: "Home" }}
+            options={{ tabBarAccessibilityLabel: "Settings", color: 'yellow' }}
           />
         </Tab.Navigator>
       </NavigationContainer>
