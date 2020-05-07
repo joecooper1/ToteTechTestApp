@@ -1,37 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { Text, View, ScrollView, FlatList, Dimensions } from "react-native";
 
-import styles from "../assets/stylesheets/HomeScreen";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-import { getTopArtistsByGenre } from "../api/api";
+const Stack = createStackNavigator();
 
-import ArtistCard from "../components/ArtistCard";
+import ListScreen from "./ListScreen";
+import ArtistScreen from "./ArtistScreen";
 
-const { width: winWidth, height: winHeight } = Dimensions.get("window");
-
-export default function HomeScreen() {
-  const [topArtists, setTopArtists] = useState([]);
-
-  useEffect(() => {
-    const getTopArtists = async () => {
-      const newTopArtists = await getTopArtistsByGenre();
-      console.log(newTopArtists)
-      setTopArtists(newTopArtists);
-    };
-    if (topArtists.length === 0) getTopArtists();
-  });
-
+export default function HomeScreen({ navigation }) {
   return (
-    <View style={{height: winHeight}}>
-      <ScrollView
-        style={{ flex: 1 }}
-        contentContainerStyle={styles.container}
-        scrollEnabled={true}
-      >
-        {topArtists.map((artist) => {
-          return <ArtistCard key={artist.name} artist={artist} />;
-        })}
-      </ScrollView>
-    </View>
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "black",
+        },
+        headerTintColor: "#fff",
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+      }}
+    >
+      <Stack.Screen name="List" component={ListScreen} />
+      <Stack.Screen name="Artist" component={ArtistScreen} />
+    </Stack.Navigator>
   );
 }

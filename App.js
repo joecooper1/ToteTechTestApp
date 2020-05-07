@@ -9,7 +9,7 @@ const Tab = createMaterialTopTabNavigator();
 
 import HomeScreen from "./src/screens/HomeScreen";
 import SettingsScreen from "./src/screens/SettingsScreen";
-import ArtistScreen from './src/screens/ArtistScreen';
+import ArtistScreen from "./src/screens/ArtistScreen";
 
 export default function App() {
   //Set color of status bar elements
@@ -39,11 +39,6 @@ export default function App() {
             name="Home"
             component={HomeScreen}
             options={{ tabBarAccessibilityLabel: "Home" }}
-          />
-          <Tab.Screen
-            name="Artist"
-            component={ArtistScreen}
-            options={{ tabBarAccessibilityLabel: "Artist" }}
           />
           <Tab.Screen
             name="Settings"

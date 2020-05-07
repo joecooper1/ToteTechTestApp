@@ -8,7 +8,7 @@ export default function ArtistCard(props) {
   const styles = styleMaker(props);
 
   const goToPage = () => {
-    props.navigation.jumpTo("Artist", { artist: props.artist });
+    props.navigation.navigate('Artist', {artist: props.artist});
   };
 
   return (
