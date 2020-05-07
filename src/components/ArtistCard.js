@@ -9,6 +9,7 @@ export default function ArtistCard(props) {
   return (
     <View style={styles.container}>
       <Text style={styles.name}>{props.artist.name}</Text>
+      
     </View>
   );
 };

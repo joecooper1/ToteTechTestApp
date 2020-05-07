@@ -15,6 +15,7 @@ export default function HomeScreen() {
   useEffect(() => {
     const getTopArtists = async () => {
       const newTopArtists = await getTopArtistsByGenre();
+      console.log(newTopArtists)
       setTopArtists(newTopArtists);
     };
     if (topArtists.length === 0) getTopArtists();

@@ -4,9 +4,10 @@ const { width: winWidth, height: winHeight } = Dimensions.get("window");
 
 export default StyleSheet.create({
     container: {
-      // justifyContent: 'center',
-      // alignItems: 'center',
-      // backgroundColor: '#F5FCFF',
+      width: winWidth,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: 'black',
       flexGrow: 1
     },
     welcome: {
