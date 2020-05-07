@@ -6,10 +6,17 @@ import styles from "../assets/stylesheets/SettingsScreen";
 import { getTopTracks } from "../api/api";
 
 export default function SettingsScreen() {
+  //Set state
   const [topTracks, setTopTracks] = useState([{ id: 5 }, { id: 6 }]);
-  useEffect(async () => {
-    const topTracks = await getTopTracks();
-    console.log(topTracks);
+
+  //Get top tracks on component mounting
+  useEffect(() => {
+    async () => {
+      if (topTracks === []) {
+        const newTopTracks = await getTopTracks();
+        setTopTracks(newTopTracks);
+      }
+    };
   });
 
   return (
