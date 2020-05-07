@@ -3,8 +3,6 @@ import { Text, View } from "react-native";
 
 import styles from "../assets/stylesheets/SettingsScreen";
 
-import { getTopTracks, getArtistInfo } from "../api/api";
-
 export default function SettingsScreen() {
 
   return (
