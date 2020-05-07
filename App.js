@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { SafeAreaView, StatusBar, View } from "react-native";
 
+import { Ionicons } from "@expo/vector-icons";
+
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 const Tab = createMaterialTopTabNavigator();
 
 import HomeScreen from "./src/screens/HomeScreen";
 import SettingsScreen from "./src/screens/SettingsScreen";
+import ArtistScreen from './src/screens/ArtistScreen';
 
 export default function App() {
   //Set color of status bar elements
@@ -38,9 +41,14 @@ export default function App() {
             options={{ tabBarAccessibilityLabel: "Home" }}
           />
           <Tab.Screen
+            name="Artist"
+            component={ArtistScreen}
+            options={{ tabBarAccessibilityLabel: "Artist" }}
+          />
+          <Tab.Screen
             name="Settings"
             component={SettingsScreen}
-            options={{ tabBarAccessibilityLabel: "Settings", color: "yellow" }}
+            options={{ tabBarAccessibilityLabel: "Settings" }}
           />
         </Tab.Navigator>
       </NavigationContainer>
