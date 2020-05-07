@@ -22,10 +22,25 @@ export const getArtistInfo = (artist = "Cher") => {
     )
     .then((result) => {
       console.log(result.data.artist.bio.summary);
+      return result.data.artist.bio.summary;
     })
     .catch((err) => {
       console.log(err);
     });
 };
 
-export const getTopArtistsByGenre = () => {}
+export const getTopArtistsByGenre = (page = 1) => {
+  return axios
+    .get(
+      `http://ws.audioscrobbler.com/2.0/?method=tag.gettopartists&tag=reggae&api_key=${lastApiKey}&format=json&limit=10&page=${page}`,
+      {},
+      { headers: { "User-Agent": "OnlyReggae" } }
+    )
+    .then((result) => {
+      console.log(result.data.topartists.artist);
+      return result.data.topartists.artist;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
