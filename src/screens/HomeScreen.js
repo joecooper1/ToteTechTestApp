@@ -22,8 +22,12 @@ export default function HomeScreen({ navigation }) {
         },
       }}
     >
-      <Stack.Screen name="List" component={ListScreen} />
-      <Stack.Screen name="Artist" component={ArtistScreen} />
+      <Stack.Screen name="List" component={ListScreen} options={{title: 'Top Artists'}} />
+      <Stack.Screen
+        name="Artist"
+        component={ArtistScreen}
+        options={({ route }) => ({ title: route.params.artist.name })}
+      />
     </Stack.Navigator>
   );
 }
