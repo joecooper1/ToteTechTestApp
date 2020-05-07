@@ -1,15 +1,14 @@
-import React from 'react';
+import React from "react";
 import { View, Text, Image } from "react-native";
 
-import styleMaker from '../assets/stylesheets/ArtistCard';
+import {styleMaker} from "../assets/stylesheets/ArtistCard";
 
-export default ArtistCard = (props) => {
+export default function ArtistCard(props) {
+  const styles = styleMaker(props);
 
-
-    const styles = styleMaker(props);
-
-
-    return <View>
-        <Text>{props.artist.name}</Text>
+  return (
+    <View style={styles.container}>
+      <Text style={styles.name}>{props.artist.name}</Text>
     </View>
+  );
 };

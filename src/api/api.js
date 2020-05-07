@@ -37,7 +37,6 @@ export const getTopArtistsByGenre = (page = 1) => {
       { headers: { "User-Agent": "OnlyReggae" } }
     )
     .then((result) => {
-      console.log(result.data.topartists.artist);
       return result.data.topartists.artist;
     })
     .catch((err) => {
