@@ -1,8 +1,7 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import { SafeAreaView, StatusBar, View } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
-
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 const Tab = createMaterialTopTabNavigator();
 
@@ -41,7 +40,7 @@ export default function App() {
           <Tab.Screen
             name="Settings"
             component={SettingsScreen}
-            options={{ tabBarAccessibilityLabel: "Settings", color: 'yellow' }}
+            options={{ tabBarAccessibilityLabel: "Settings", color: "yellow" }}
           />
         </Tab.Navigator>
       </NavigationContainer>
