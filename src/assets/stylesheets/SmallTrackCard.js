@@ -7,11 +7,11 @@ export const styleMaker = (props) => {
     container: {
       width: "90%",
       height: 40,
-      backgroundColor: "rgba(0, 0, 0, 0.5)",
+      backgroundColor: "rgba(0, 0, 0, 0.3)",
       margin: 5,
       display: "flex",
       alignItems: "center",
     },
-    name: { color: "black", margin: 5, fontSize: 17 },
+    name: { color: "black", margin: 5, fontSize: 17, color: 'white' },
   });
 };
