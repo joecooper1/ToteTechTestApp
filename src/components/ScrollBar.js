@@ -9,12 +9,13 @@ const { width: winWidth, height: winHeight } = Dimensions.get("window");
 
 export default function ScrollBar(props) {
   return (
-    <>
-      <Text>{props.label}</Text>
+    <View style={styles.section}>
+      <Text style={{ color: "white" }}>{props.label}</Text>
       <ScrollView
         style={{ flex: 1 }}
         contentContainerStyle={styles.scrollContainer}
         scrollEnabled={true}
+        horizontal={true}
       >
         {props.scrollThrough.map((artist) => {
           return (
@@ -26,6 +27,6 @@ export default function ScrollBar(props) {
           );
         })}
       </ScrollView>
-    </>
+   </View>
   );
 }

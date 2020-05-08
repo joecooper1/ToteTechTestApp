@@ -9,7 +9,7 @@ const Tab = createMaterialTopTabNavigator();
 
 import HomeScreen from "./src/screens/HomeScreen";
 import SettingsScreen from "./src/screens/SettingsScreen";
-import ProfileScreen from './src/screens/ProfileScreen';
+import ProfileScreen from "./src/screens/ProfileScreen";
 
 export default function App() {
   //Set color of status bar elements
@@ -29,11 +29,12 @@ export default function App() {
         <Tab.Navigator
           backBehaviour="order"
           initialRouteName="Home"
+          swipeEnabled={false}
           tabBarOptions={{
             activeTintColor: "red",
             inactiveTintColor: "red",
             style: { backgroundColor: "hsl(0, 0%, 15%)" },
-            indicatorStyle: { backgroundColor: "black", height: null, top: 0 }
+            indicatorStyle: { backgroundColor: "black", height: null, top: 0 },
           }}
         >
           <Tab.Screen

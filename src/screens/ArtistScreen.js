@@ -4,7 +4,6 @@ import { Text, View } from "react-native";
 import styles from "../assets/stylesheets/ArtistScreen";
 
 export default function ArtistScreen(props) {
-  
   const artist = props.route.params.artist;
 
   return (

@@ -11,10 +11,10 @@ export const styleMaker = (props) => {
 
   return StyleSheet.create({
     container: {
-      width: winWidth * 0.8,
-      height: winHeight * 0.2,
+      width: winWidth * 0.4,
+      height: winWidth * 0.4,
       backgroundColor: bgColor,
-      marginTop: 30,
+      margin: 5,
       color: txtColor,
       display: "flex",
       borderRadius: 20,

@@ -24,7 +24,7 @@ export default function ListScreen({ navigation }) {
   });
 
   return (
-    <View style={{ height: winHeight }}>
+    <View style={{ minHeight: winHeight, width: winWidth, backgroundColor: 'black' }}>
       <ScrollBar label="Top Artists" scrollThrough={topArtists} navigation={navigation} />
     </View>
   );
