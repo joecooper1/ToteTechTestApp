@@ -2,10 +2,6 @@
 #
 .DS_Store
 
-# Auth
-src/api/auth.js
-src/api/authorise.js
-
 # Xcode
 #
 build/

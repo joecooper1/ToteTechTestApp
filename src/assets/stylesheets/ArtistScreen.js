@@ -18,5 +18,10 @@ export default StyleSheet.create({
       maxHeight: winHeight * 0.4,
       width: winWidth * 0.95,
       margin: winWidth * 0.05,
+    },
+    image: {
+      width: winWidth * 0.5,
+      height: winWidth * 0.5,
+      backgroundColor: 'grey',
     }
   });

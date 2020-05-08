@@ -70,7 +70,7 @@ export const getImageUrl = (mbid) => {
   console.log("getImageUrl");
   return axios
     .get(
-      `//musicbrainz.org/ws/2/release/${mbid}`,
+      `http://coverartarchive.org/release/${mbid}`,
       {},
       { headers: { "User-Agent": "OnlyReggae" } }
     )
