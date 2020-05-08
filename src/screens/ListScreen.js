@@ -3,7 +3,7 @@ import { Text, View, ScrollView, FlatList, Dimensions } from "react-native";
 
 import styles from "../assets/stylesheets/ListScreen";
 
-import { getTopArtistsByGenre } from "../api/api";
+import { getTopArtistsByGenre, getTopTracksByGenre } from "../api/api";
 
 import ScrollBar from "../components/ScrollBar";
 
@@ -17,15 +17,37 @@ export default function ListScreen({ navigation }) {
   useEffect(() => {
     const getTopArtists = async () => {
       const newTopArtists = await getTopArtistsByGenre();
-      console.log(newTopArtists);
       setTopArtists(newTopArtists);
     };
     if (topArtists.length === 0) getTopArtists();
   });
 
+  useEffect(() => {
+    const getTopTracks = async () => {
+      const newTopTracks = await getTopTracksByGenre();
+      setTopTracks(newTopTracks);
+    };
+    if (topTracks.length === 0) getTopTracks();
+  });
+
   return (
-    <View style={{ minHeight: winHeight, width: winWidth, backgroundColor: 'black' }}>
-      <ScrollBar label="Top Artists" scrollThrough={topArtists} navigation={navigation} />
+    <View
+      style={{
+        minHeight: winHeight,
+        width: winWidth,
+        backgroundColor: "black",
+      }}
+    >
+      <ScrollBar
+        label="Top Artists"
+        scrollThrough={topArtists}
+        navigation={navigation}
+      />
+      <ScrollBar
+        label="Top Tracks"
+        scrollThrough={topTracks}
+        navigation={navigation}
+      />
     </View>
   );
 }

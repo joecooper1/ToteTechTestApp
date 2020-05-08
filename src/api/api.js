@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { lastApiKey } from "./auth";
 
-export const getTopTracksByGenre = () => {
+export const getTopTracksByGenre = (page = 6) => {
   console.log("getTopTracksByGenre");
   return axios
     .get(
@@ -11,7 +11,7 @@ export const getTopTracksByGenre = () => {
       { headers: { "User-Agent": "OnlyReggae" } }
     )
     .then((result) => {
-      console.log(result.data);
+      return result.data.tracks.track;
     })
     .catch((err) => {
       console.log(err);
