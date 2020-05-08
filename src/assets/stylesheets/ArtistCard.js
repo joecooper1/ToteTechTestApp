@@ -26,7 +26,6 @@ export const styleMaker = (props) => {
       margin: winWidth * 0.01
     },
     name: {
-      color: 'black',
       fontSize: 17,
       padding: 5,
       borderRadius: 17,
