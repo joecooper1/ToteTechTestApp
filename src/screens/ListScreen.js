@@ -27,7 +27,7 @@ export default function ListScreen({ navigation }) {
       const newTopTracks = await getTopTracksByGenre();
       setTopTracks(newTopTracks);
     };
-    if (topTracks.length === 0) getTopTracks();
+    if (topArtists.length !== 0 && topTracks.length === 0) getTopTracks();
   });
 
   return (
