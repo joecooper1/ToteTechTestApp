@@ -15,6 +15,7 @@ export default function ArtistCard(props) {
     <Button onPress={goToPage}>
       <View style={styles.container}>
         <Text style={styles.name}>{props.element.name}</Text>
+        <Image style={styles.image} />
       </View>
     </Button>
   );
