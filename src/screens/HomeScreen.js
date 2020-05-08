@@ -8,6 +8,7 @@ const Stack = createStackNavigator();
 
 import ListScreen from "./ListScreen";
 import ArtistScreen from "./ArtistScreen";
+import TrackScreen from './TrackScreen';
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -30,7 +31,12 @@ export default function HomeScreen({ navigation }) {
       <Stack.Screen
         name="Artist"
         component={ArtistScreen}
-        options={({ route }) => ({ title: route.params.artist.name })}
+        options={({ route }) => ({ title: route.params.element.name })}
+      />
+      <Stack.Screen
+        name="Track"
+        component={TrackScreen}
+        options={({ route }) => ({ title: route.params.element.name })}
       />
     </Stack.Navigator>
   );

@@ -8,13 +8,13 @@ export default function ArtistCard(props) {
   const styles = styleMaker(props);
 
   const goToPage = () => {
-    props.navigation.navigate('Artist', {artist: props.artist});
+    props.navigation.navigate(props.type, {element: props.element});
   };
 
   return (
     <Button onPress={goToPage}>
       <View style={styles.container}>
-        <Text style={styles.name}>{props.artist.name}</Text>
+        <Text style={styles.name}>{props.element.name}</Text>
       </View>
     </Button>
   );

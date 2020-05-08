@@ -42,11 +42,13 @@ export default function ListScreen({ navigation }) {
         label="Top Artists"
         scrollThrough={topArtists}
         navigation={navigation}
+        type="Artist"
       />
       <ScrollBar
         label="Top Tracks"
         scrollThrough={topTracks}
         navigation={navigation}
+        type="Track"
       />
     </View>
   );

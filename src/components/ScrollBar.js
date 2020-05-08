@@ -17,12 +17,13 @@ export default function ScrollBar(props) {
         scrollEnabled={true}
         horizontal={true}
       >
-        {props.scrollThrough.map((artist) => {
+        {props.scrollThrough.map((element) => {
           return (
             <ArtistCard
-              key={artist.name}
-              artist={artist}
+              key={element.name}
+              element={element}
               navigation={props.navigation}
+              type={props.type}
             />
           );
         })}
