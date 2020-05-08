@@ -2,12 +2,16 @@ import axios from "axios";
 
 import { lastApiKey } from "./auth";
 
-export const getTopTracks = () => {
-  console.log("getTopTracks");
+export const getTopTracksByGenre = () => {
+  console.log("getTopTracksByGenre");
   return axios
-    .get(`https://api.spotify.com/v1/search?q=bowie&type=artist`)
+    .get(
+      `http://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=reggae&api_key=${lastApiKey}&format=json&limit=10&page=${page}`,
+      {},
+      { headers: { "User-Agent": "OnlyReggae" } }
+    )
     .then((result) => {
-      return result.data;
+      console.log(result.data);
     })
     .catch((err) => {
       console.log(err);
