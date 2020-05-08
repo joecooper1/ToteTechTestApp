@@ -12,6 +12,8 @@ const { width: winWidth, height: winHeight } = Dimensions.get("window");
 
 export default function ListScreen({ navigation }) {
   const [topArtists, setTopArtists] = useState([]);
+  const [artistOfTheDay, setArtistOfTheDay] = useState([]);
+  const [topTracks, setTopTracks] = useState([]);
 
   useEffect(() => {
     const getTopArtists = async () => {
