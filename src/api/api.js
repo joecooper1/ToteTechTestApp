@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { lastApiKey } from "./auth";
+import { lastApiKey, napApiKey } from "./auth";
 
 export const getTopTracksByGenre = (page = 6) => {
   console.log("getTopTracksByGenre");
@@ -34,16 +34,17 @@ export const getArtistInfo = (artist = "Cher") => {
     });
 };
 
-export const getTopArtistsByGenre = (page = 1) => {
+export const getTopArtistsByGenre = () => {
   console.log("getTopArtists");
   return axios
     .get(
-      `http://ws.audioscrobbler.com/2.0/?method=tag.gettopartists&tag=reggae&api_key=${lastApiKey}&format=json&limit=10&page=${page}`,
+      `https://api.napster.com/v2.2/genres/g.383/artists/top?limit=10&offset=0&apikey=${napApiKey}`,
       {},
       { headers: { "User-Agent": "OnlyReggae" } }
     )
     .then((result) => {
-      return result.data.topartists.artist;
+      console.log(result.data);
+      return result.data.artists;
     })
     .catch((err) => {
       console.log(err);

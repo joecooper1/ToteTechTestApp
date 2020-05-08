@@ -3,7 +3,8 @@ import { StyleSheet, Dimensions } from "react-native";
 const { width: winWidth, height: winHeight } = Dimensions.get("window");
 
 export const styleMaker = (props) => {
-  const rank = props.element["@attr"].rank;
+  // const rank = props.element["@attr"].rank;
+  const rank = 1;
   const bgColor = rank % 3 === 0 ? "green" : rank % 3 === 2 ? "yellow" : "red";
 
   return StyleSheet.create({
