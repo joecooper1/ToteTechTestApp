@@ -10,15 +10,13 @@ import { getTopTracksByArtist, getImageUrl } from "../api/api";
 
 export default function ArtistScreen(props) {
   const [topTracks, setTopTracks] = useState([]);
-  const [imageUrl, setImageUrl] = useState(
-    "https://www.freeimages.com/photo/music-visualisation-1199450"
-  );
+  const [imageUri, setImageUri] = useState(null);
 
   //Get top tracks of artist on page load
   useEffect(() => {
     const getTopTracks = async () => {
       const newTopTracks = await getTopTracksByArtist(
-        props.route.params.element.name
+        props.route.params.element.id
       );
       setTopTracks(newTopTracks);
     };
@@ -27,12 +25,10 @@ export default function ArtistScreen(props) {
 
   useEffect(() => {
     const getUrl = async () => {
-      // const newUrl = await getImageUrl(topTracks[0].mbid);
-      setImageUrl(
-        "https://www.freeimages.com/photo/music-visualisation-1199450"
-      );
+      const newUrl = await getImageUrl(artist.id);
+      setImageUri(newUrl);
     };
-    if (topTracks.length !== 0 && !imageUrl) getUrl();
+    if (topTracks.length !== 0 && !imageUri) getUrl();
   });
 
   const artist = props.route.params.element;
@@ -42,15 +38,12 @@ export default function ArtistScreen(props) {
       colors={["rgb(5,54,0)", "rgb(66,55,0)", "rgb(66,3,0)"]}
       style={styles.container}
     >
-      <Image
-        style={styles.image}
-        source={{ uri: "https://reactnative.dev/img/tiny_logo.png" }}
-      />
+      <Image style={styles.image} source={{ uri: imageUri }} />
       <ScrollView style={styles.scrollBar}>
         {topTracks.map((track) => {
           return (
             <SmallTrackCard
-              key={track.name}
+              key={track.id}
               track={track}
               navigation={props.navigation}
             />

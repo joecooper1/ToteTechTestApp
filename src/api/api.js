@@ -2,16 +2,16 @@ import axios from "axios";
 
 import { lastApiKey, napApiKey } from "./auth";
 
-export const getTopTracksByGenre = (page = 6) => {
+export const getTopTracksByGenre = () => {
   console.log("getTopTracksByGenre");
   return axios
     .get(
-      `http://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=reggae&api_key=${lastApiKey}&format=json&limit=10&page=${page}`,
+      `https://api.napster.com/v2.2/playlists/pp.53250712/tracks?limit=10&offset=0&apikey=${napApiKey}`,
       {},
       { headers: { "User-Agent": "OnlyReggae" } }
     )
     .then((result) => {
-      return result.data.tracks.track;
+      return result.data.tracks;
     })
     .catch((err) => {
       console.log(err);
@@ -22,7 +22,7 @@ export const getArtistInfo = (artist = "Cher") => {
   console.log("getArtistInfo");
   return axios
     .get(
-      `http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artist}&api_key=${lastApiKey}&format=json`,
+      `https://api.napster.com/v2.2/genres/g.383//top?limit=10&offset=0&apikey=${napApiKey}`,
       {},
       { headers: { "User-Agent": "onlyReggae" } }
     )
@@ -43,7 +43,6 @@ export const getTopArtistsByGenre = () => {
       { headers: { "User-Agent": "OnlyReggae" } }
     )
     .then((result) => {
-      console.log(result.data);
       return result.data.artists;
     })
     .catch((err) => {
@@ -55,28 +54,28 @@ export const getTopTracksByArtist = (artist, page = 1) => {
   console.log("getTopTracksByArtist");
   return axios
     .get(
-      `http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artist}&api_key=${lastApiKey}&format=json&limit=10&page=${page}`,
+      `https://api.napster.com/v2.2/artists/${artist}/tracks/top?limit=10&offset=0&apikey=${napApiKey}`,
       {},
       { headers: { "User-Agent": "OnlyReggae" } }
     )
     .then((result) => {
-      return result.data.toptracks.track;
+      return result.data.tracks;
     })
     .catch((err) => {
       console.log(err);
     });
 };
 
-export const getImageUrl = (mbid) => {
+export const getImageUrl = (artist) => {
   console.log("getImageUrl");
   return axios
     .get(
-      `http://coverartarchive.org/release/${mbid}`,
+      `https://api.napster.com/v2.2/artists/${artist}/images?apikey=${napApiKey}`,
       {},
       { headers: { "User-Agent": "OnlyReggae" } }
     )
     .then((result) => {
-      console.log(result.data);
+      return result.data.images[0].url;
     })
     .catch((err) => {
       console.log(err);

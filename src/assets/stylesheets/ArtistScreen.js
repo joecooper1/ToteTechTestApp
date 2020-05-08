@@ -22,6 +22,5 @@ export default StyleSheet.create({
     image: {
       width: winWidth * 0.5,
       height: winWidth * 0.5,
-      backgroundColor: 'grey',
     }
   });
