@@ -59,7 +59,7 @@ export const getTopTracksByArtist = (artist, page = 1) => {
       { headers: { "User-Agent": "OnlyReggae" } }
     )
     .then((result) => {
-      console.log(result.data)
+      console.log(result.data);
     })
     .catch((err) => {
       console.log(err);

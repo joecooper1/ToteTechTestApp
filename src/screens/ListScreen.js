@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Text, View, ScrollView, FlatList, Dimensions } from "react-native";
-import Button from "react-native-button";
 
-import styles from "../assets/stylesheets/HomeScreen";
+import styles from "../assets/stylesheets/ListScreen";
 
 import { getTopArtistsByGenre } from "../api/api";
 
-import ArtistCard from "../components/ArtistCard";
+import ScrollBar from "../components/ScrollBar";
 
 const { width: winWidth, height: winHeight } = Dimensions.get("window");
 
@@ -26,21 +25,7 @@ export default function ListScreen({ navigation }) {
 
   return (
     <View style={{ height: winHeight }}>
-      <ScrollView
-        style={{ flex: 1 }}
-        contentContainerStyle={styles.container}
-        scrollEnabled={true}
-      >
-        {topArtists.map((artist) => {
-          return (
-            <ArtistCard
-              key={artist.name}
-              artist={artist}
-              navigation={navigation}
-            />
-          );
-        })}
-      </ScrollView>
+      <ScrollBar label="Top Artists" scrollThrough={topArtists} navigation={navigation} />
     </View>
   );
 }
