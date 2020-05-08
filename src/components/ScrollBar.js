@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { Text, View, ScrollView, FlatList, Dimensions } from "react-native";
+import React, { useState, useEffect, useRef } from "react";
+import { Text, View, ScrollView, Animated, Dimensions } from "react-native";
 
 import styles from "../assets/stylesheets/ScrollBar";
 
 import ArtistCard from "./ArtistCard";
 
-const { width: winWidth, height: winHeight } = Dimensions.get("window");
-
 export default function ScrollBar(props) {
   const [elements, setElements] = useState([]);
+  const fadeAnim = useRef(new Animated.Value(500)).current;
 
   useEffect(() => {
     const getElements = async () => {
@@ -17,6 +16,13 @@ export default function ScrollBar(props) {
     };
     if (elements.length === 0) getElements();
   });
+
+  useEffect(() => {
+    Animated.timing(fadeAnim, {
+      toValue: 0,
+      duration: 2000,
+    }).start();
+  }, []);
 
   return (
     <View style={styles.section}>
@@ -38,6 +44,6 @@ export default function ScrollBar(props) {
           );
         })}
       </ScrollView>
-   </View>
+    </View>
   );
 }
