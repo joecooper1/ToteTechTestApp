@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Text, View } from "react-native";
+import { Text, View, ScrollView } from "react-native";
 
 import styles from "../assets/stylesheets/ArtistScreen";
 
-import { getArtistInfo } from "../api/api";
+import SmallTrackCard from "../components/SmallTrackCard";
+
+import { getTopTracksByArtist } from "../api/api";
 
 export default function ArtistScreen(props) {
-  const [artistInfo, setArtistInfo] = useState("");
   const [topTracks, setTopTracks] = useState([]);
 
   useEffect(() => {
-    const getInfo = async () => {
-      const newArtistInfo = await getArtistInfo(props.route.params.element.name);
-      setArtistInfo(newArtistInfo);
+    const getTopTracks = async () => {
+      const newTopTracks = await getTopTracksByArtist(
+        props.route.params.element.name
+      );
+      setTopTracks(newTopTracks);
     };
-    if (artistInfo === "") getInfo();
+    if (topTracks.length === 0) getTopTracks();
   });
 
   const artist = props.route.params.element;
@@ -22,7 +25,11 @@ export default function ArtistScreen(props) {
   return (
     <View style={styles.container}>
       <Text style={styles.welcome}>{artist.name}</Text>
-      <Text>{artistInfo}</Text>
+      <ScrollView style={styles.scrollBar}>
+        {topTracks.map((track) => {
+          return <SmallTrackCard track={track} navigation={props.navigation}/>
+        })}
+      </ScrollView>
     </View>
   );
 }

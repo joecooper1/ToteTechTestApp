@@ -14,9 +14,9 @@ export default StyleSheet.create({
       textAlign: 'center',
       margin: 10,
     },
-    instructions: {
-      textAlign: 'center',
-      color: '#333333',
-      marginBottom: 5,
-    },
+    scrollBar: {
+      maxHeight: winHeight * 0.4,
+      width: winWidth * 0.95,
+      margin: winWidth * 0.05,
+    }
   });
