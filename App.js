@@ -9,7 +9,7 @@ const Tab = createMaterialTopTabNavigator();
 
 import HomeScreen from "./src/screens/HomeScreen";
 import SettingsScreen from "./src/screens/SettingsScreen";
-import ArtistScreen from "./src/screens/ArtistScreen";
+import ProfileScreen from './src/screens/ProfileScreen';
 
 export default function App() {
   //Set color of status bar elements
@@ -28,13 +28,19 @@ export default function App() {
       <NavigationContainer>
         <Tab.Navigator
           backBehaviour="order"
+          initialRouteName="Home"
           tabBarOptions={{
             activeTintColor: "red",
             inactiveTintColor: "red",
             style: { backgroundColor: "hsl(0, 0%, 15%)" },
-            indicatorStyle: { backgroundColor: "black", height: null, top: 0 },
+            indicatorStyle: { backgroundColor: "black", height: null, top: 0 }
           }}
         >
+          <Tab.Screen
+            name="Profile"
+            component={ProfileScreen}
+            options={{ tabBarAccessibilityLabel: "Profile" }}
+          />
           <Tab.Screen
             name="Home"
             component={HomeScreen}
