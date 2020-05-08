@@ -27,7 +27,7 @@ export default function ArtistScreen(props) {
       <Text style={styles.welcome}>{artist.name}</Text>
       <ScrollView style={styles.scrollBar}>
         {topTracks.map((track) => {
-          return <SmallTrackCard track={track} navigation={props.navigation}/>
+          return <SmallTrackCard key={track.name} track={track} navigation={props.navigation}/>
         })}
       </ScrollView>
     </View>
