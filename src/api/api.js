@@ -75,7 +75,7 @@ export const getImageUrl = (artist) => {
       { headers: { "User-Agent": "OnlyReggae" } }
     )
     .then((result) => {
-      return result.data.images[0].url;
+        return result.data.images[0] ? result.data.images[0].url : 'none';
     })
     .catch((err) => {
       console.log(err);
