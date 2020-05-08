@@ -13,7 +13,7 @@ export default function TrackScreen(props) {
       style={styles.container}
     >
       <Text style={styles.trackName}>{track.name}</Text>
-      <Text style={styles.artistName}>{track.artist.name}</Text>
+      <Text style={styles.artistName}>{track.artistName}</Text>
     </LinearGradient>
   );
 }

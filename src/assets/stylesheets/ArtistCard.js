@@ -11,7 +11,7 @@ export const styleMaker = (props) => {
     container: {
       width: winWidth * 0.4,
       height: winWidth * 0.4,
-      backgroundColor: bgColor,
+      backgroundColor: 'white',
       margin: 5,
       borderRadius: 20,
       alignItems: "center",
@@ -29,10 +29,11 @@ export const styleMaker = (props) => {
       color: 'black',
       fontSize: 17,
       padding: 5,
-      margin: 5,
-      borderRadius: 20,
+      borderRadius: 17,
       backgroundColor: "rgba(255, 255, 255, 0.4)",
-      position: 'absolute'
+      position: 'absolute',
+      width: winWidth * 0.38,
+      bottom: winWidth * 0.01
     },
   });
 };

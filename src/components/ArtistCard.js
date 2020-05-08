@@ -8,13 +8,18 @@ export default function ArtistCard(props) {
   const styles = styleMaker(props);
 
   const goToPage = () => {
-    props.navigation.navigate(props.type, {element: props.element});
+    props.navigation.navigate(props.type, { element: props.element });
   };
+
+  const artistName = props.element.artistName ? <Text style={{color: 'rgba(0, 0, 0, 0.6)'}}>{props.element.artistName}</Text> : null;
 
   return (
     <Button onPress={goToPage}>
       <View style={styles.container}>
-        <Text style={styles.name}>{props.element.name}</Text>
+        <View style={styles.name}>
+          <Text>{props.element.name}</Text>
+          {artistName}
+        </View>
         <Image style={styles.image} />
       </View>
     </Button>
