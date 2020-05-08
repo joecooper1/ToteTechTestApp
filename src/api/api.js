@@ -65,3 +65,19 @@ export const getTopTracksByArtist = (artist, page = 1) => {
       console.log(err);
     });
 };
+
+export const getImageUrl = (mbid) => {
+  console.log("getImageUrl");
+  return axios
+    .get(
+      `//musicbrainz.org/ws/2/release/${mbid}`,
+      {},
+      { headers: { "User-Agent": "OnlyReggae" } }
+    )
+    .then((result) => {
+      console.log(result.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
