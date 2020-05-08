@@ -22,7 +22,11 @@ export default function HomeScreen({ navigation }) {
         },
       }}
     >
-      <Stack.Screen name="List" component={ListScreen} options={{title: 'Top Artists'}} />
+      <Stack.Screen
+        name="List"
+        component={ListScreen}
+        options={{ title: "", headerStyle: {height: 0} }}
+      />
       <Stack.Screen
         name="Artist"
         component={ArtistScreen}
