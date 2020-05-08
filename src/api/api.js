@@ -2,11 +2,11 @@ import axios from "axios";
 
 import { lastApiKey, napApiKey } from "./auth";
 
-export const getTopTracksByGenre = () => {
+export const getTopTracksByGenre = (playlist) => {
   console.log("getTopTracksByGenre");
   return axios
     .get(
-      `https://api.napster.com/v2.2/playlists/pp.53250712/tracks?limit=10&offset=0&apikey=${napApiKey}`,
+      `https://api.napster.com/v2.2/playlists/${playlist}/tracks?limit=10&offset=0&apikey=${napApiKey}`,
       {},
       { headers: { "User-Agent": "OnlyReggae" } }
     )

@@ -10,25 +10,6 @@ import ScrollBar from "../components/ScrollBar";
 const { width: winWidth, height: winHeight } = Dimensions.get("window");
 
 export default function ListScreen({ navigation }) {
-  const [topArtists, setTopArtists] = useState([]);
-  const [artistOfTheDay, setArtistOfTheDay] = useState([]);
-  const [topTracks, setTopTracks] = useState([]);
-
-  useEffect(() => {
-    const getTopArtists = async () => {
-      const newTopArtists = await getTopArtistsByGenre();
-      setTopArtists(newTopArtists);
-    };
-    if (topArtists.length === 0) getTopArtists();
-  });
-
-  useEffect(() => {
-    const getTopTracks = async () => {
-      const newTopTracks = await getTopTracksByGenre();
-      setTopTracks(newTopTracks);
-    };
-    if (topArtists.length !== 0 && topTracks.length === 0) getTopTracks();
-  });
 
   return (
     <View
@@ -40,13 +21,15 @@ export default function ListScreen({ navigation }) {
     >
       <ScrollBar
         label="Top Artists"
-        scrollThrough={topArtists}
+        scrollThrough={getTopArtistsByGenre}
+        argument={''}
         navigation={navigation}
         type="Artist"
       />
       <ScrollBar
-        label="Top Tracks"
-        scrollThrough={topTracks}
+        label="Reggae HeartBeat"
+        scrollThrough={getTopTracksByGenre}
+        argument={'pp.53250712'}
         navigation={navigation}
         type="Track"
       />
