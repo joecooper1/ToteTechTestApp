@@ -10,6 +10,7 @@ export default function TrackScreen(props) {
   return (
     <View style={styles.container}>
       <Text style={styles.welcome}>{track.name}</Text>
+      <Text>{track.artist.name}</Text>
     </View>
   );
 }
