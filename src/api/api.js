@@ -75,7 +75,7 @@ export const getImageUrl = (artist) => {
       { headers: { "User-Agent": "OnlyReggae" } }
     )
     .then((result) => {
-        return result.data.images[0] ? result.data.images[0].url : 'none';
+      return result.data.images[0] ? result.data.images[0].url : "none";
     })
     .catch((err) => {
       console.log(err);
@@ -91,7 +91,23 @@ export const getAlbumImageUrl = (album) => {
       { headers: { "User-Agent": "OnlyReggae" } }
     )
     .then((result) => {
-        return result.data.images[0] ? result.data.images[0].url : 'none';
+      return result.data.images[0] ? result.data.images[0].url : "none";
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const searchByTerm = (term) => {
+  console.log("searchByTerm");
+  return axios
+    .get(
+      `https://api.napster.com/v2.2/search?query=${term}&per_type_limit=10`,
+      {},
+      { headers: { "User-Agent": "OnlyReggae" } }
+    )
+    .then((result) => {
+      console.log(result.data);
     })
     .catch((err) => {
       console.log(err);
