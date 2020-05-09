@@ -22,6 +22,10 @@ export default StyleSheet.create({
       paddingHorizontal: 30,
       paddingVertical: 10
     },
+    errorMessage: {
+      color: 'red',
+      textAlign: 'center'
+    },
     submitButton: {
       marginTop: 40,
       backgroundColor: 'green',
