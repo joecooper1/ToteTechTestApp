@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { SafeAreaView, StatusBar, View } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
@@ -38,19 +38,11 @@ export default function App() {
             name="Browse"
             component={HomeScreen}
             options={{ tabBarAccessibilityLabel: "Home" }}
-            listeners={{
-              tabPress: e => {
-              },
-            }}
           />
           <Tab.Screen
             name="Search"
             component={SearchScreen}
             options={{ tabBarAccessibilityLabel: "Search" }}
-            listeners={{
-              tabPress: e => {
-              },
-            }}
           />
         </Tab.Navigator>
       </NavigationContainer>
