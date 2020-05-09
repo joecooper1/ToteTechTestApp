@@ -22,8 +22,8 @@ export default function TrackScreen(props) {
   const track = props.route.params.element;
 
   //Link to artist screen
-  const goToPage = (name, id) => {
-    props.navigation.navigate("Artist", { element: { name, id } });
+  const goToPage = (type, name, id) => {
+    props.navigation.navigate(type, { element: { name, id } });
   };
 
   return (
@@ -33,10 +33,10 @@ export default function TrackScreen(props) {
     >
       <Image style={styles.image} source={{ uri: albumUrl }} />
       <Text style={styles.trackName}>{track.name}</Text>
-      <Button>
+      <Button onPress={() => goToPage('Album', track.albumName, track.albumId)}>
         <Text style={styles.albumName}>{track.albumName}</Text>
       </Button>
-      <Button onPress={() => goToPage(track.artistName, track.artistId)}>
+      <Button onPress={() => goToPage('Artist', track.artistName, track.artistId)}>
         <Text style={styles.artistName}>{track.artistName}</Text>
       </Button>
     </LinearGradient>
