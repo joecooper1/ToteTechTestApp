@@ -7,6 +7,7 @@ import ScrollBar from "../components/ScrollBar";
 
 const { width: winWidth, height: winHeight } = Dimensions.get("window");
 
+//Set initial data to loop through for flatlist
 const data = [
   {
     label: "Top Artists",
