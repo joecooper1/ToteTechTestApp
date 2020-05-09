@@ -23,6 +23,7 @@ export default function ArtistScreen(props) {
     if (topTracks.length === 0) getTopTracks();
   });
 
+  //Get artist url
   useEffect(() => {
     const getUrl = async () => {
       const newUrl = await getImageUrl(artist.id);
