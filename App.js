@@ -6,7 +6,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 const Tab = createMaterialTopTabNavigator();
 
 import HomeScreen from "./src/screens/HomeScreen";
-import SettingsScreen from "./src/screens/SettingsScreen";
+import SearchScreen from "./src/screens/SearchScreen";
 
 export default function App() {
   //Set color of status bar elements
@@ -40,9 +40,9 @@ export default function App() {
             options={{ tabBarAccessibilityLabel: "Home" }}
           />
           <Tab.Screen
-            name="Settings"
-            component={SettingsScreen}
-            options={{ tabBarAccessibilityLabel: "Settings" }}
+            name="Search"
+            component={SearchScreen}
+            options={{ tabBarAccessibilityLabel: "Search" }}
           />
         </Tab.Navigator>
       </NavigationContainer>
