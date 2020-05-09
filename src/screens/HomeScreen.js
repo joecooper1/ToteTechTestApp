@@ -60,29 +60,32 @@ export default function HomeScreen(props) {
       props.route.params &&
       props.route.params.searchTerm !== previousSearchTerm
     ) {
-      setData([
-        {
-          label: "Artists",
-          scrollThrough: searchByTerm,
-          argument: { term: props.route.params.searchTerm, type: "artist" },
-          type: "Artist",
-          elements: props.route.params.searchTerm,
-        },
-        {
-          label: "Tracks",
-          scrollThrough: searchByTerm,
-          argument: { term: props.route.params.searchTerm, type: "track" },
-          type: "Track",
-          elements: props.route.params.searchTerm,
-        },
-        {
-          label: "Albums",
-          scrollThrough: searchByTerm,
-          argument: { term: props.route.params.searchTerm, type: "album" },
-          type: "Album",
-          elements: props.route.params.searchTerm,
-        },
-      ]);
+      if (props.route.params.searchTerm === "default") {
+        setData(initialData);
+      } else
+        setData([
+          {
+            label: "Artists",
+            scrollThrough: searchByTerm,
+            argument: { term: props.route.params.searchTerm, type: "artist" },
+            type: "Artist",
+            elements: props.route.params.searchTerm,
+          },
+          {
+            label: "Tracks",
+            scrollThrough: searchByTerm,
+            argument: { term: props.route.params.searchTerm, type: "track" },
+            type: "Track",
+            elements: props.route.params.searchTerm,
+          },
+          {
+            label: "Albums",
+            scrollThrough: searchByTerm,
+            argument: { term: props.route.params.searchTerm, type: "album" },
+            type: "Album",
+            elements: props.route.params.searchTerm,
+          },
+        ]);
       setPreviousSearchTerm(props.route.params.searchTerm);
     }
   });

@@ -15,26 +15,34 @@ export default StyleSheet.create({
       margin: 10,
       color: 'white'
     },
+    textInputContainer: {
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'baseline'
+    },
     input: {
       color: 'white',
       marginTop: 30,
       backgroundColor: 'hsl(0,0%,20%)',
       paddingHorizontal: 30,
-      paddingVertical: 10
+      height: 43
     },
     errorMessage: {
       color: 'red',
       textAlign: 'center',
       height: 60
     },
-    submitButton: {
-      marginTop: 20,
-      backgroundColor: 'green',
-      width: 50,
-      height: 50,
-      borderRadius: 50,
-      alignItems: 'center',
-      justifyContent: 'center'
+    warningMessage: {
+      color: 'yellow',
+      textAlign: 'center',
+      marginTop: 30
+    },
+    searchIcon: {
+      color: 'white',
+      backgroundColor: 'hsl(0,0%,30%)',
+      width: 40,
+      height: 43,
+      textAlign: 'center',
     },
     submitText: {
       color: 'white'

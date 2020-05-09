@@ -5,6 +5,8 @@ import styles from "../assets/stylesheets/SearchScreen";
 
 import { searchByTerm } from "../api/api";
 
+import { Ionicons } from "@expo/vector-icons";
+
 export default function SearchScreen({ navigation }) {
   const [searchInput, setSearchInput] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -31,18 +33,25 @@ export default function SearchScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.welcome}>Search</Text>
-      <TextInput
-        placeholder="eg Marcia Griffiths"
-        style={styles.input}
-        onChangeText={(text) => {
-          handleChange(text);
-        }}
-        value={searchInput}
-      />
+      <View style={styles.textInputContainer}>
+        <TextInput
+          placeholder="eg Marcia Griffiths"
+          style={styles.input}
+          onChangeText={(text) => {
+            handleChange(text);
+          }}
+          value={searchInput}
+          onSubmitEditing={handleSubmit}
+        />
+        <TouchableOpacity onPress={handleSubmit}>
+          <Ionicons name="md-search" size={40} style={styles.searchIcon} />
+        </TouchableOpacity>
+      </View>
       <Text style={styles.errorMessage}>{errorMessage}</Text>
-      <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
-        <Text style={styles.submitText}>Go</Text>
-      </TouchableOpacity>
+      <Text style={styles.warningMessage}>
+        Warning! {"\n"} Careless searches may result in {"\n"} NON-REGGAE music!{" "}
+        {"\n"} Search at your own risk.{" "}
+      </Text>
     </View>
   );
 }
