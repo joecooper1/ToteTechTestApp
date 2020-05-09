@@ -3,19 +3,24 @@ import { Text, View, TextInput, TouchableOpacity } from "react-native";
 
 import styles from "../assets/stylesheets/SearchScreen";
 
+import { searchByTerm } from "../api/api";
+
 export default function SearchScreen() {
   const [searchInput, setSearchInput] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+  //Change text in input box
   const handleChange = (text) => {
     setSearchInput(text);
   };
 
-  const handleSubmit = () => {
+  //Set error message if necessary, or perform search
+  const handleSubmit = async () => {
     if (!searchInput) {
       setErrorMessage("Don't ask, don't get -\nEnter something to search for");
     } else {
-      setErrorMessage('')
+      setErrorMessage("");
+      const searchResults = await searchByTerm(searchInput);
     }
   };
 

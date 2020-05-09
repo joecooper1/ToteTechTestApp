@@ -102,12 +102,12 @@ export const searchByTerm = (term) => {
   console.log("searchByTerm");
   return axios
     .get(
-      `https://api.napster.com/v2.2/search?query=${term}&per_type_limit=10`,
+      `https://api.napster.com/v2.2/search?query=${term}&per_type_limit=10&apikey=${napApiKey}`,
       {},
       { headers: { "User-Agent": "OnlyReggae" } }
     )
     .then((result) => {
-      console.log(result.data);
+      return result.data.search.data;
     })
     .catch((err) => {
       console.log(err);
