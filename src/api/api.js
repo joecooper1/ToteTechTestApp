@@ -34,11 +34,27 @@ export const getTopArtistsByGenre = () => {
     });
 };
 
-export const getTopTracksByArtist = (artist, page = 1) => {
+export const getTopTracksByArtist = (artist) => {
   console.log("getTopTracksByArtist");
   return axios
     .get(
       `https://api.napster.com/v2.2/artists/${artist}/tracks/top?limit=10&offset=0&apikey=${napApiKey}`,
+      {},
+      { headers: { "User-Agent": "OnlyReggae" } }
+    )
+    .then((result) => {
+      return result.data.tracks;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const getTracksByAlbum = (album) => {
+  console.log("getTracksByAlbum");
+  return axios
+    .get(
+      `https://api.napster.com/v2.2/albums/${album}/tracks?&apikey=${napApiKey}`,
       {},
       { headers: { "User-Agent": "OnlyReggae" } }
     )
