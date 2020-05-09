@@ -5,8 +5,6 @@ import styles from "../assets/stylesheets/ScrollBar";
 
 import ArtistCard from "./ArtistCard";
 
-import { getTopArtistsByGenre, getTopTracksByGenre } from "../api/api";
-
 export default function ScrollBar(props) {
   const [elements, setElements] = useState([]);
 
