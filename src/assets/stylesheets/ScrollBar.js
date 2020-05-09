@@ -10,5 +10,28 @@ export default StyleSheet.create({
     backgroundColor: "black",
     flexGrow: 1,
   },
-  label: {color: 'white', fontSize: 28}
+  label: {color: 'white', fontSize: 28},
+  plusMoreContainer: {
+    width: winWidth * 0.4,
+      height: winWidth * 0.4,
+      backgroundColor: 'white',
+      margin: 5,
+      borderRadius: 20,
+      alignItems: "center",
+      justifyContent: "flex-end",
+  },
+  plusMoreInner: {
+    width: winWidth * 0.38,
+    height: winWidth * 0.38,
+    backgroundColor: "grey",
+    zIndex: -1,
+    borderRadius: 17,
+    margin: winWidth * 0.01,
+    alignItems: 'center',
+    justifyContent: 'center',
+    display: 'flex'
+  },
+  plus: {
+    fontSize: 60,
+  }
 });

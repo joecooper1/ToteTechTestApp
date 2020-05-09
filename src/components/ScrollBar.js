@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Text, View, ScrollView } from "react-native";
+import React, { useState, useEffect, useRef } from "react";
+import { Text, View, ScrollView, _ScrollView } from "react-native";
+import Button from "react-native-button";
 
 import styles from "../assets/stylesheets/ScrollBar";
 
@@ -7,14 +8,26 @@ import ArtistCard from "./ArtistCard";
 
 export default function ScrollBar(props) {
   const [elements, setElements] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const scroller = useRef();
 
   useEffect(() => {
-    const getElements = async () => {
-      const newElements = await props.scrollThrough(props.argument);
-      setElements(newElements);
-    };
-    getElements();
+    getElements(true);
+    //Scroll to beginning on new search
+    scroller.current.scrollTo({x: 0, y: 0})
   }, [props.argument]);
+
+  const getElements = async (isNewSearch) => {
+    setLoading(true);
+    //If new search, loads first page of results, else load next page and concat
+    const page = isNewSearch ? 1 : elements.length / 10 + 1;
+    const newElements = await props.scrollThrough(props.argument, page);
+    isNewSearch
+      ? setElements(newElements)
+      : setElements([...elements, ...newElements]);
+    setLoading(false);
+  };
 
   return (
     <View style={styles.section}>
@@ -24,6 +37,7 @@ export default function ScrollBar(props) {
         contentContainerStyle={styles.scrollContainer}
         scrollEnabled={true}
         horizontal={true}
+        ref={scroller}
       >
         {elements.map((element) => {
           return (
@@ -35,6 +49,17 @@ export default function ScrollBar(props) {
             />
           );
         })}
+        <Button
+          onPress={() => {
+            getElements(false);
+          }}
+        >
+          <View style={styles.plusMoreContainer}>
+            <View style={styles.plusMoreInner}>
+              <Text style={styles.plus}>...</Text>
+            </View>
+          </View>
+        </Button>
       </ScrollView>
     </View>
   );

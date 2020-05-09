@@ -2,11 +2,11 @@ import axios from "axios";
 
 import { lastApiKey, napApiKey } from "./auth";
 
-export const getTopTracksByGenre = (playlist) => {
+export const getTopTracksByGenre = (playlist, page = 1) => {
   console.log("getTopTracksByGenre");
   return axios
     .get(
-      `https://api.napster.com/v2.2/playlists/${playlist}/tracks?limit=10&offset=0&apikey=${napApiKey}`,
+      `https://api.napster.com/v2.2/playlists/${playlist}/tracks?limit=10&offset=${10 * page - 10}&apikey=${napApiKey}`,
       {},
       { headers: { "User-Agent": "OnlyReggae" } }
     )
@@ -18,11 +18,11 @@ export const getTopTracksByGenre = (playlist) => {
     });
 };
 
-export const getTopArtistsByGenre = () => {
+export const getTopArtistsByGenre = (artist, page = 1) => {
   console.log("getTopArtists");
   return axios
     .get(
-      `https://api.napster.com/v2.2/genres/g.383/artists/top?limit=10&offset=0&apikey=${napApiKey}`,
+      `https://api.napster.com/v2.2/genres/g.383/artists/top?limit=10&offset=${10 * page - 10}&apikey=${napApiKey}`,
       {},
       { headers: { "User-Agent": "OnlyReggae" } }
     )
@@ -34,11 +34,11 @@ export const getTopArtistsByGenre = () => {
     });
 };
 
-export const getTopTracksByArtist = (artist) => {
+export const getTopTracksByArtist = (artist, page = 1) => {
   console.log("getTopTracksByArtist");
   return axios
     .get(
-      `https://api.napster.com/v2.2/artists/${artist}/tracks/top?limit=10&offset=0&apikey=${napApiKey}`,
+      `https://api.napster.com/v2.2/artists/${artist}/tracks/top?limit=10&offset=${10 * page - 10}&apikey=${napApiKey}`,
       {},
       { headers: { "User-Agent": "OnlyReggae" } }
     )
@@ -98,11 +98,11 @@ export const getAlbumImageUrl = (album) => {
     });
 };
 
-export const searchByTerm = ({ term, type }) => {
+export const searchByTerm = ({ term, type }, page = 1) => {
   console.log("searchByTerm");
   return axios
     .get(
-      `https://api.napster.com/v2.2/search?query=${term}&type=${type}&per_type_limit=10&apikey=${napApiKey}`,
+      `https://api.napster.com/v2.2/search?query=${term}&type=${type}&per_type_limit=10&offset=${10 * page - 10}&apikey=${napApiKey}`,
       {},
       { headers: { "User-Agent": "OnlyReggae" } }
     )
