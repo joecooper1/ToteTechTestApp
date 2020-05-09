@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { SafeAreaView, StatusBar, View } from "react-native";
 
-import { Ionicons } from "@expo/vector-icons";
-
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 const Tab = createMaterialTopTabNavigator();
 
 import HomeScreen from "./src/screens/HomeScreen";
 import SettingsScreen from "./src/screens/SettingsScreen";
-import ProfileScreen from "./src/screens/ProfileScreen";
 
 export default function App() {
   //Set color of status bar elements
@@ -37,11 +34,6 @@ export default function App() {
             indicatorStyle: { backgroundColor: "black", height: null, top: 0 },
           }}
         >
-          <Tab.Screen
-            name="Profile"
-            component={ProfileScreen}
-            options={{ tabBarAccessibilityLabel: "Profile" }}
-          />
           <Tab.Screen
             name="Home"
             component={HomeScreen}
