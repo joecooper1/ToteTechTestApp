@@ -9,6 +9,7 @@ import { getAlbumImageUrl } from "../api/api";
 
 export default function TrackScreen(props) {
   const [albumUrl, setAlbumUrl] = useState(null);
+  const [trackId, setTrackId] = useState(props.route.params.element.id);
 
   //Get album url
   useEffect(() => {
@@ -16,7 +17,7 @@ export default function TrackScreen(props) {
       const newUrl = await getAlbumImageUrl(props.route.params.element.albumId);
       setAlbumUrl(newUrl);
     };
-    if (!albumUrl) getUrl();
+    if (!albumUrl || trackId !== props.route.params.element.id) getUrl();
   });
 
   const track = props.route.params.element;
