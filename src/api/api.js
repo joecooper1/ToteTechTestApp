@@ -98,16 +98,17 @@ export const getAlbumImageUrl = (album) => {
     });
 };
 
-export const searchByTerm = (term) => {
+export const searchByTerm = ({ term, type }) => {
   console.log("searchByTerm");
   return axios
     .get(
-      `https://api.napster.com/v2.2/search?query=${term}&per_type_limit=10&apikey=${napApiKey}`,
+      `https://api.napster.com/v2.2/search?query=${term}&type=${type}&per_type_limit=10&apikey=${napApiKey}`,
       {},
       { headers: { "User-Agent": "OnlyReggae" } }
     )
     .then((result) => {
-      return result.data.search.data;
+      return result.data.search.data[type + "s"];
+      // return result.data.search.data;
     })
     .catch((err) => {
       console.log(err);

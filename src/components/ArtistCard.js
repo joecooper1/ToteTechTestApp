@@ -16,8 +16,7 @@ export default function ArtistCard(props) {
       newUrl ? setImageUri(newUrl) : setImageUri('none');
     };
     if (!imageUri) getUrl();
-  });
-  // console.log(props.element.artistId, props.element.id);
+  }, [props.element.name]);
 
   const styles = styleMaker(props);
 

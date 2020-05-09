@@ -1,17 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Text, View, FlatList, Dimensions } from "react-native";
-
-import { getTopArtistsByGenre, getTopTracksByGenre } from "../api/api";
 
 import ScrollBar from "../components/ScrollBar";
 
 const { width: winWidth, height: winHeight } = Dimensions.get("window");
 
-
-
-export default function ListScreen({ navigation, data }) {
-  const [searchResults, setSearchResults] = useState(data);
-
+export default function ListScreen({ navigation, data, searchTerm }) {
   return (
     <View
       style={{
@@ -21,7 +15,7 @@ export default function ListScreen({ navigation, data }) {
       }}
     >
       <FlatList
-        data={searchResults}
+        data={data}
         renderItem={({ item, index, seperators }) => {
           return (
             <ScrollBar
@@ -30,6 +24,7 @@ export default function ListScreen({ navigation, data }) {
               argument={item.argument}
               navigation={navigation}
               type={item.type}
+              elements={item.elements}
             />
           );
         }}

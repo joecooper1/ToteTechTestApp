@@ -1,28 +1,26 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Text, View, ScrollView, Animated, Dimensions } from "react-native";
+import React, { useState, useEffect } from "react";
+import { Text, View, ScrollView } from "react-native";
 
 import styles from "../assets/stylesheets/ScrollBar";
 
 import ArtistCard from "./ArtistCard";
 
+import { getTopArtistsByGenre, getTopTracksByGenre } from "../api/api";
+
 export default function ScrollBar(props) {
   const [elements, setElements] = useState([]);
-  const fadeAnim = useRef(new Animated.Value(500)).current;
 
   useEffect(() => {
     const getElements = async () => {
       const newElements = await props.scrollThrough(props.argument);
       setElements(newElements);
     };
-    if (elements.length === 0) getElements();
-  });
-
-  useEffect(() => {
-    Animated.timing(fadeAnim, {
-      toValue: 0,
-      duration: 2000,
-    }).start();
-  }, []);
+    //If state is not set
+    // if (elements.length === 0) {
+      //Use fields in data to make an api call to get elements
+      getElements();
+    // }
+  }, [props.argument]);
 
   return (
     <View style={styles.section}>
