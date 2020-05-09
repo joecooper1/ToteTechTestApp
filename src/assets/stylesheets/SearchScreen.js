@@ -24,10 +24,11 @@ export default StyleSheet.create({
     },
     errorMessage: {
       color: 'red',
-      textAlign: 'center'
+      textAlign: 'center',
+      height: 60
     },
     submitButton: {
-      marginTop: 40,
+      marginTop: 20,
       backgroundColor: 'green',
       width: 50,
       height: 50,

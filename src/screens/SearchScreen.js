@@ -12,6 +12,7 @@ export default function SearchScreen() {
   //Change text in input box
   const handleChange = (text) => {
     setSearchInput(text);
+    setErrorMessage('');
   };
 
   //Set error message if necessary, or perform search
@@ -19,7 +20,7 @@ export default function SearchScreen() {
     if (!searchInput) {
       setErrorMessage("Don't ask, don't get -\nEnter something to search for");
     } else {
-      setErrorMessage("");
+      setSearchInput('');
       const searchResults = await searchByTerm(searchInput);
     }
   };
