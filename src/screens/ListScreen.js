@@ -11,7 +11,7 @@ const data = [
   {
     label: "Top Artists",
     scrollThrough: getTopArtistsByGenre,
-    argument: "",
+    argument: "topartists",
     type: "Artist",
   },
   {
@@ -24,6 +24,12 @@ const data = [
     label: "Dancehall",
     scrollThrough: getTopTracksByGenre,
     argument: "pp.182041037",
+    type: "Track",
+  },
+  {
+    label: "1975",
+    scrollThrough: getTopTracksByGenre,
+    argument: "pp.160452881",
     type: "Track",
   },
 ];
@@ -47,11 +53,14 @@ export default function ListScreen({ navigation }) {
               argument={item.argument}
               navigation={navigation}
               type={item.type}
-              key={item.argument}
             />
           );
         }}
-        style={{ width: winWidth, minHeight: winHeight }}
+        keyExtractor={(item, index) => index.toString()}
+        style={{ width: winWidth, maxHeight: winHeight * 0.85 }}
+        windowSize={3}
+        removeClippedSubViews={true}
+
       />
     </View>
   );
