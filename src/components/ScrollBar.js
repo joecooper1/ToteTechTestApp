@@ -15,11 +15,7 @@ export default function ScrollBar(props) {
       const newElements = await props.scrollThrough(props.argument);
       setElements(newElements);
     };
-    //If state is not set
-    // if (elements.length === 0) {
-      //Use fields in data to make an api call to get elements
-      getElements();
-    // }
+    getElements();
   }, [props.argument]);
 
   return (
@@ -34,7 +30,7 @@ export default function ScrollBar(props) {
         {elements.map((element) => {
           return (
             <ArtistCard
-              key={element.name}
+              key={element.id}
               element={element}
               navigation={props.navigation}
               type={props.type}
