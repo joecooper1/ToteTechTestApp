@@ -18,22 +18,6 @@ export const getTopTracksByGenre = (playlist) => {
     });
 };
 
-export const getArtistInfo = (artist = "Cher") => {
-  console.log("getArtistInfo");
-  return axios
-    .get(
-      `https://api.napster.com/v2.2/genres/g.383//top?limit=10&offset=0&apikey=${napApiKey}`,
-      {},
-      { headers: { "User-Agent": "onlyReggae" } }
-    )
-    .then((result) => {
-      return result.data.artist.bio.summary;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
 export const getTopArtistsByGenre = () => {
   console.log("getTopArtists");
   return axios
@@ -71,6 +55,22 @@ export const getImageUrl = (artist) => {
   return axios
     .get(
       `https://api.napster.com/v2.2/artists/${artist}/images?apikey=${napApiKey}`,
+      {},
+      { headers: { "User-Agent": "OnlyReggae" } }
+    )
+    .then((result) => {
+        return result.data.images[0] ? result.data.images[0].url : 'none';
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const getAlbumImageUrl = (album) => {
+  console.log("getAlbumImageUrl");
+  return axios
+    .get(
+      `https://api.napster.com/v2.2/albums/${album}/images?apikey=${napApiKey}`,
       {},
       { headers: { "User-Agent": "OnlyReggae" } }
     )
