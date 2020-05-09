@@ -50,9 +50,11 @@ const initialData = [
   },
 ];
 
-export default function HomeScreen(props) {
+export default function HomeScreen({ navigation, ...props }) {
   const [data, setData] = useState(initialData);
   const [previousSearchTerm, setPreviousSearchTerm] = useState("");
+
+  console.log("render HOME");
 
   //If a search term has been updated, use data from the search to pass to listscreen, else use default data
   useEffect(() => {
@@ -89,6 +91,14 @@ export default function HomeScreen(props) {
       setPreviousSearchTerm(props.route.params.searchTerm);
     }
   });
+
+  //On tab press, revert data back to default
+  useEffect(() => {
+    const unsubscribe = navigation.addListener("tabPress", (e) => {
+      // Prevent default action
+      setData(initialData);
+    });
+  }, [props.navigation]);
 
   //Set the search term to be passed down to list screen
   const searchTerm = props.route.params ? props.route.params.searchTerm : null;

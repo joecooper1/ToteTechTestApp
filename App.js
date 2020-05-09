@@ -38,11 +38,19 @@ export default function App() {
             name="Browse"
             component={HomeScreen}
             options={{ tabBarAccessibilityLabel: "Home" }}
+            listeners={{
+              tabPress: e => {
+              },
+            }}
           />
           <Tab.Screen
             name="Search"
             component={SearchScreen}
             options={{ tabBarAccessibilityLabel: "Search" }}
+            listeners={{
+              tabPress: e => {
+              },
+            }}
           />
         </Tab.Navigator>
       </NavigationContainer>

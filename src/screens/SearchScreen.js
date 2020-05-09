@@ -11,6 +11,8 @@ export default function SearchScreen({ navigation }) {
   const [searchInput, setSearchInput] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+  console.log('render search')
+
   //Change text in input box
   const handleChange = (text) => {
     setSearchInput(text);
