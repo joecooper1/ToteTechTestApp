@@ -32,11 +32,6 @@ export default StyleSheet.create({
       textAlign: 'center',
       height: 60
     },
-    warningMessage: {
-      color: 'yellow',
-      textAlign: 'center',
-      marginTop: 30
-    },
     searchIcon: {
       color: 'white',
       backgroundColor: 'hsl(0,0%,30%)',

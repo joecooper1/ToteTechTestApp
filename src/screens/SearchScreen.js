@@ -48,10 +48,6 @@ export default function SearchScreen({ navigation }) {
         </TouchableOpacity>
       </View>
       <Text style={styles.errorMessage}>{errorMessage}</Text>
-      <Text style={styles.warningMessage}>
-        Warning! {"\n"} Careless searches may result in {"\n"} NON-REGGAE music!{" "}
-        {"\n"} Search at your own risk.{" "}
-      </Text>
     </View>
   );
 }
