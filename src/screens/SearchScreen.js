@@ -21,7 +21,7 @@ export default function SearchScreen({ navigation }) {
       setErrorMessage("Don't ask, don't get -\nEnter something to search for");
     } else {
       //Go to homepage, with formatted search results as newdata
-      navigation.jumpTo("Home", {
+      navigation.jumpTo("Browse", {
         searchTerm: searchInput,
       });
       setSearchInput("");

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { View } from "react-native";
 
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -9,12 +10,13 @@ import ArtistScreen from "./ArtistScreen";
 import TrackScreen from "./TrackScreen";
 import AlbumScreen from "./AlbumScreen";
 
+import styles from "../assets/stylesheets/HomeScreen";
+
 import {
   getTopArtistsByGenre,
   getTopTracksByGenre,
   searchByTerm,
 } from "../api/api";
-import { set } from "react-native-reanimated";
 
 //Set initial data to loop through for flatlist
 const initialData = [
@@ -89,44 +91,42 @@ export default function HomeScreen(props) {
   const searchTerm = props.route.params ? props.route.params.searchTerm : null;
 
   return (
-    <Stack.Navigator
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: "black",
-        },
-        headerTintColor: "#fff",
-        headerTitleStyle: {
-          fontWeight: "bold",
-        },
-      }}
-    >
-      <Stack.Screen
-        name="List"
-        options={{ title: "", headerStyle: { height: 0 } }}
+    <View style={styles.container}>
+      <Stack.Navigator
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: "black",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+        }}
       >
-        {(props) => (
-          <ListScreen
-            {...props}
-            data={data}
-            searchTerm={searchTerm}
-          />
-        )}
-      </Stack.Screen>
-      <Stack.Screen
-        name="Artist"
-        component={ArtistScreen}
-        options={({ route }) => ({ title: route.params.element.name })}
-      />
-      <Stack.Screen
-        name="Track"
-        component={TrackScreen}
-        options={({ route }) => ({ title: route.params.element.name })}
-      />
-      <Stack.Screen
-        name="Album"
-        component={AlbumScreen}
-        options={({ route }) => ({ title: route.params.element.name })}
-      />
-    </Stack.Navigator>
+        <Stack.Screen
+          name="List"
+          options={{ title: "", headerStyle: { height: 0 } }}
+        >
+          {(props) => (
+            <ListScreen {...props} data={data} searchTerm={searchTerm} />
+          )}
+        </Stack.Screen>
+        <Stack.Screen
+          name="Artist"
+          component={ArtistScreen}
+          options={({ route }) => ({ title: route.params.element.name })}
+        />
+        <Stack.Screen
+          name="Track"
+          component={TrackScreen}
+          options={({ route }) => ({ title: route.params.element.name })}
+        />
+        <Stack.Screen
+          name="Album"
+          component={AlbumScreen}
+          options={({ route }) => ({ title: route.params.element.name })}
+        />
+      </Stack.Navigator>
+    </View>
   );
 }

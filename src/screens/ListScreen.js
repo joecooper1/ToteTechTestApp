@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, FlatList, Dimensions } from "react-native";
+import {
+  Text,
+  View,
+  FlatList,
+  Dimensions,
+  TouchableOpacity,
+} from "react-native";
 
 import ScrollBar from "../components/ScrollBar";
 
 const { width: winWidth, height: winHeight } = Dimensions.get("window");
+
+import styles from "../assets/stylesheets/HomeScreen";
 
 export default function ListScreen({ navigation, data, searchTerm }) {
   return (
@@ -29,7 +37,7 @@ export default function ListScreen({ navigation, data, searchTerm }) {
           );
         }}
         keyExtractor={(item, index) => index.toString()}
-        style={{ width: winWidth, maxHeight: winHeight * 0.85 }}
+        style={{ width: winWidth, maxHeight: winHeight * 0.9 }}
         windowSize={3}
         removeClippedSubViews={true}
       />
