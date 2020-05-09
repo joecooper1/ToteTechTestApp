@@ -15,6 +15,7 @@ export default function SearchScreen() {
     if (!searchInput) {
       setErrorMessage("Don't ask, don't get -\nEnter something to search for");
     } else {
+      setErrorMessage('')
     }
   };
 
