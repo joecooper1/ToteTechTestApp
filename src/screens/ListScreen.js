@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, View, FlatList, Dimensions } from "react-native";
 
 import { getTopArtistsByGenre, getTopTracksByGenre } from "../api/api";
@@ -35,6 +35,8 @@ const data = [
 ];
 
 export default function ListScreen({ navigation }) {
+  const [searchResults, setSearchResults] = useState(data);
+
   return (
     <View
       style={{
@@ -44,7 +46,7 @@ export default function ListScreen({ navigation }) {
       }}
     >
       <FlatList
-        data={data}
+        data={searchResults}
         renderItem={({ item, index, seperators }) => {
           return (
             <ScrollBar
@@ -60,7 +62,6 @@ export default function ListScreen({ navigation }) {
         style={{ width: winWidth, maxHeight: winHeight * 0.85 }}
         windowSize={3}
         removeClippedSubViews={true}
-
       />
     </View>
   );
