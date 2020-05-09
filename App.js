@@ -35,7 +35,7 @@ export default function App() {
           }}
         >
           <Tab.Screen
-            name="Home"
+            name="Browse"
             component={HomeScreen}
             options={{ tabBarAccessibilityLabel: "Home" }}
           />
