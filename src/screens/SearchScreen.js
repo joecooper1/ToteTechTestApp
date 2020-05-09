@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Text, View, TextInput, TouchableOpacity } from "react-native";
-import Button from "react-native-button";
 
 import styles from "../assets/stylesheets/SearchScreen";
 
