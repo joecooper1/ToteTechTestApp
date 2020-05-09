@@ -66,6 +66,20 @@ export default function HomeScreen(props) {
           type: "Artist",
           elements: props.route.params.searchTerm,
         },
+        {
+          label: "Tracks",
+          scrollThrough: searchByTerm,
+          argument: { term: props.route.params.searchTerm, type: "track" },
+          type: "Track",
+          elements: props.route.params.searchTerm,
+        },
+        {
+          label: "Albums",
+          scrollThrough: searchByTerm,
+          argument: { term: props.route.params.searchTerm, type: "album" },
+          type: "Album",
+          elements: props.route.params.searchTerm,
+        },
       ]);
       setPreviousSearchTerm(props.route.params.searchTerm);
     }
