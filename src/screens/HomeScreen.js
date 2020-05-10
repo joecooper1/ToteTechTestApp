@@ -48,6 +48,20 @@ const initialData = [
     type: "Track",
     elements: null,
   },
+  {
+    label: "Reggae Heaven",
+    scrollThrough: getTopTracksByPlaylist,
+    argument: "pp.236986080",
+    type: "Track",
+    elements: null,
+  },
+  {
+    label: "Jamaica Pop",
+    scrollThrough: getTopTracksByPlaylist,
+    argument: "pp.180355606",
+    type: "Track",
+    elements: null,
+  },
 ];
 
 export default function HomeScreen({ navigation, ...props }) {
