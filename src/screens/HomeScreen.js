@@ -54,8 +54,6 @@ export default function HomeScreen({ navigation, ...props }) {
   const [data, setData] = useState(initialData);
   const [previousSearchTerm, setPreviousSearchTerm] = useState("");
 
-  console.log("render HOME");
-
   //If a search term has been updated, use data from the search to pass to listscreen, else use default data
   useEffect(() => {
     if (
@@ -64,7 +62,7 @@ export default function HomeScreen({ navigation, ...props }) {
     ) {
       if (props.route.params.searchTerm === "default") {
         setData(initialData);
-      } else
+      } else {
         setData([
           {
             label: "Artists",
@@ -88,13 +86,15 @@ export default function HomeScreen({ navigation, ...props }) {
             elements: props.route.params.searchTerm,
           },
         ]);
+        navigation.navigate("List")
+      }
       setPreviousSearchTerm(props.route.params.searchTerm);
     }
   });
 
   //On tab press, revert data back to default
   useEffect(() => {
-    const unsubscribe = navigation.addListener("tabPress", (e) => {
+    const backToHomeScreen = navigation.addListener("tabPress", (e) => {
       // Prevent default action
       setData(initialData);
     });
