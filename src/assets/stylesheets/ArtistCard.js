@@ -20,7 +20,7 @@ export const styleMaker = (props) => {
     image: {
       width: winWidth * 0.38,
       height: winWidth * 0.38,
-      backgroundColor: "grey",
+      backgroundColor: `hsl(39, ${Math.random()*30+70}%, 45%)`,
       zIndex: -1,
       borderRadius: 17,
       margin: winWidth * 0.01
