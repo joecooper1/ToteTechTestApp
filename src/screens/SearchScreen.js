@@ -27,7 +27,6 @@ export default function SearchScreen({ navigation }) {
       navigation.jumpTo("Browse", {
         searchTerm: searchInput,
       });
-      setSearchInput("");
     }
   };
 
