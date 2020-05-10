@@ -35,7 +35,9 @@ export default function ArtistCard(props) {
   //Check if element has artistName, and if it does render it
   const artistName = props.element.artistName ? (
     <Text style={{ color: "rgba(0, 0, 0, 0.6)" }}>
-      {props.element.artistName}
+      {props.element.artistName
+        .slice(0, 30)
+        .concat(props.element.artistName.length > 30 ? "..." : "")}
     </Text>
   ) : null;
 
