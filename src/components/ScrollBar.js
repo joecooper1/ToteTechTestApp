@@ -45,9 +45,7 @@ export default function ScrollBar(props) {
   //Getmore button
   const getMoreButton =
     elements.length === 0 ? (
-      <View style={styles.plusMoreContainer}>
-        <Text style={styles.noMoreText}>It looks like there's{"\n"}nothing here</Text>
-      </View>
+      <View></View>
     ) : (
       <Button
         onPress={() => {
