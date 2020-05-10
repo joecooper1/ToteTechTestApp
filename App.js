@@ -46,7 +46,7 @@ export default function App() {
               style: { backgroundColor: "hsl(0, 0%, 15%)" },
               indicatorStyle: {
                 backgroundColor: "black",
-                height: null,
+                height: 0,
                 top: 0,
               },
             }}
@@ -54,7 +54,7 @@ export default function App() {
             <Tab.Screen
               name="Browse"
               component={HomeScreen}
-              options={{ tabBarAccessibilityLabel: "Home" }}
+              options={{ tabBarAccessibilityLabel: "Home", tabBarLabel: 'Top Reggae' }}
             />
             <Tab.Screen
               name="Search"
