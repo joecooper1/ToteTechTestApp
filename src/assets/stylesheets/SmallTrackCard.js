@@ -11,6 +11,8 @@ export const styleMaker = (props) => {
       margin: 5,
       display: "flex",
       alignItems: "center",
+      flexDirection: 'row',
+      justifyContent: 'space-between'
     },
     name: { color: "black", margin: 5, fontSize: 17, color: 'white' },
   });
