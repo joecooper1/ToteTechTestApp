@@ -33,5 +33,8 @@ export default StyleSheet.create({
   },
   plus: {
     fontSize: 60,
+  },
+  activityIndicatorPlacement: {
+    top: winHeight * 0.5
   }
 });

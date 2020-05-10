@@ -1,5 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Text, View, ScrollView, _ScrollView } from "react-native";
+import {
+  Text,
+  View,
+  ScrollView,
+  _ScrollView,
+  Modal,
+  ActivityIndicator,
+} from "react-native";
 import Button from "react-native-button";
 
 import styles from "../assets/stylesheets/ScrollBar";
@@ -15,7 +22,7 @@ export default function ScrollBar(props) {
   useEffect(() => {
     getElements(true);
     //Scroll to beginning on new search
-    scroller.current.scrollTo({x: 0, y: 0})
+    scroller.current.scrollTo({ x: 0, y: 0 });
   }, [props.argument]);
 
   const getElements = async (isNewSearch) => {
@@ -28,6 +35,13 @@ export default function ScrollBar(props) {
       : setElements([...elements, ...newElements]);
     setLoading(false);
   };
+
+  //Set loading animation for getMore button
+  const moreText = loading ? (
+    <ActivityIndicator animating={loading} size="large" color="orange" />
+  ) : (
+    <Text style={styles.plus}>...</Text>
+  );
 
   return (
     <View style={styles.section}>
@@ -55,9 +69,7 @@ export default function ScrollBar(props) {
           }}
         >
           <View style={styles.plusMoreContainer}>
-            <View style={styles.plusMoreInner}>
-              <Text style={styles.plus}>...</Text>
-            </View>
+            <View style={styles.plusMoreInner}>{moreText}</View>
           </View>
         </Button>
       </ScrollView>
