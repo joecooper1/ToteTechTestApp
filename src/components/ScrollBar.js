@@ -4,7 +4,6 @@ import {
   View,
   ScrollView,
   _ScrollView,
-  Modal,
   ActivityIndicator,
 } from "react-native";
 import Button from "react-native-button";
@@ -43,6 +42,24 @@ export default function ScrollBar(props) {
     <Text style={styles.plus}>...</Text>
   );
 
+  //Getmore button
+  const getMoreButton =
+    elements.length === 0 ? (
+      <View style={styles.plusMoreContainer}>
+        <View style={styles.noMoreText}>It looks like there's{"\n"}nothing here</View>
+      </View>
+    ) : (
+      <Button
+        onPress={() => {
+          getElements(false);
+        }}
+      >
+        <View style={styles.plusMoreContainer}>
+          <View style={styles.plusMoreInner}>{moreText}</View>
+        </View>
+      </Button>
+    );
+
   return (
     <View style={styles.section}>
       <Text style={styles.label}>{props.label}</Text>
@@ -63,15 +80,7 @@ export default function ScrollBar(props) {
             />
           );
         })}
-        <Button
-          onPress={() => {
-            getElements(false);
-          }}
-        >
-          <View style={styles.plusMoreContainer}>
-            <View style={styles.plusMoreInner}>{moreText}</View>
-          </View>
-        </Button>
+        {getMoreButton}
       </ScrollView>
     </View>
   );
