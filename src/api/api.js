@@ -2,8 +2,8 @@ import axios from "axios";
 
 import { lastApiKey, napApiKey } from "./auth";
 
-export const getTopTracksByGenre = (playlist, page = 1) => {
-  console.log("getTopTracksByGenre");
+export const getTopTracksByPlaylist = (playlist, page = 1) => {
+  console.log("getTopTracksByPlaylist");
   return axios
     .get(
       `https://api.napster.com/v2.2/playlists/${playlist}/tracks?limit=10&offset=${10 * page - 10}&apikey=${napApiKey}`,
