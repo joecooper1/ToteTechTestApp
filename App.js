@@ -41,8 +41,8 @@ export default function App() {
             initialRouteName="Home"
             swipeEnabled={false}
             tabBarOptions={{
-              activeTintColor: "red",
-              inactiveTintColor: "red",
+              activeTintColor: "orange",
+              inactiveTintColor: "orange",
               style: { backgroundColor: "hsl(0, 0%, 15%)" },
               indicatorStyle: {
                 backgroundColor: "black",

@@ -10,7 +10,7 @@ export default StyleSheet.create({
     backgroundColor: "black",
     flexGrow: 1,
   },
-  label: {color: 'white', fontSize: 28},
+  label: {color: 'orange', fontSize: winWidth * 0.07},
   plusMoreContainer: {
     width: winWidth * 0.4,
       height: winWidth * 0.4,

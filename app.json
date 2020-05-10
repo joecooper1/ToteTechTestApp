@@ -2,6 +2,7 @@
   "name": "onlyReggae",
   "displayName": "onlyReggae",
   "expo": {
+    "orientation": "portrait",
     "name": "onlyReggae",
     "slug": "onlyReggae",
     "version": "1.0.0",
