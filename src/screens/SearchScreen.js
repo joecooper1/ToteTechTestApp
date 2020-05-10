@@ -13,13 +13,16 @@ export default function SearchScreen({ navigation }) {
   const handleChange = (text) => {
     setSearchInput(text);
     setErrorMessage("");
+    if (/([^A-Za-z1-9\s])/g.test(text)) {
+      setErrorMessage("Letters, numbers and\nspaces only, please")
+    }
   };
 
   //Set error message if necessary, or perform search
   const handleSubmit = async () => {
     if (!searchInput) {
       setErrorMessage("Don't ask, don't get -\nEnter something to search for");
-    } else {
+    } else if (!errorMessage) {
       //Go to homepage, with formatted search results as newdata
       navigation.jumpTo("Browse", {
         searchTerm: searchInput,
