@@ -3,14 +3,12 @@ import { Text, View, TextInput, TouchableOpacity } from "react-native";
 
 import styles from "../assets/stylesheets/SearchScreen";
 
-import { searchByTerm } from "../api/api";
-
 import { Ionicons } from "@expo/vector-icons";
 
 export default function SearchScreen({ navigation }) {
   const [searchInput, setSearchInput] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  
+
   //Change text in input box
   const handleChange = (text) => {
     setSearchInput(text);
