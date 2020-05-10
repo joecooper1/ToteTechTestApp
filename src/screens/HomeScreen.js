@@ -14,7 +14,7 @@ import styles from "../assets/stylesheets/HomeScreen";
 
 import {
   getTopArtistsByGenre,
-  getTopTracksByGenre,
+  getTopTracksByPlaylist,
   searchByTerm,
 } from "../api/api";
 
@@ -29,21 +29,21 @@ const initialData = [
   },
   {
     label: "Reggae Heartbeat",
-    scrollThrough: getTopTracksByGenre,
+    scrollThrough: getTopTracksByPlaylist,
     argument: "pp.53250712",
     type: "Track",
     elements: null,
   },
   {
     label: "Dancehall",
-    scrollThrough: getTopTracksByGenre,
+    scrollThrough: getTopTracksByPlaylist,
     argument: "pp.182041037",
     type: "Track",
     elements: null,
   },
   {
     label: "1975",
-    scrollThrough: getTopTracksByGenre,
+    scrollThrough: getTopTracksByPlaylist,
     argument: "pp.160452881",
     type: "Track",
     elements: null,
